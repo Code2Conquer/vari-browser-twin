@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import UserProfileSection from "./UserProfileSection";
 
 const NavbarSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,10 +28,11 @@ const NavbarSection = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center space-x-4">
           <span className="text-2xl font-bold text-white">
             Varias<span className="text-neon">AI</span>
           </span>
+          <Button className="bg-electric hover:bg-electric/80 text-white">Try Free</Button>
         </div>
 
         {/* Desktop Menu */}
@@ -39,16 +41,19 @@ const NavbarSection = () => {
           <a href="#demo" className="text-gray-300 hover:text-neon transition-colors">Demo</a>
           <a href="#use-cases" className="text-gray-300 hover:text-neon transition-colors">Use Cases</a>
           <a href="#playground" className="text-gray-300 hover:text-neon transition-colors">Playground</a>
-          <Button className="bg-electric hover:bg-electric/80 text-white">Try Free</Button>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-white focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <UserProfileSection />
+        </div>
       </div>
 
       {/* Mobile Menu */}
