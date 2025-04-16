@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Grid3X3 } from "lucide-react";
 
 const CopilotCard = ({
   name,
@@ -24,10 +24,11 @@ const PlaygroundSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">From Copilot to Expert</h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">Train your copilot to act like you—or better. They'll handle workflows, collaborate and even negotiate.</p>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <CopilotCard name="Personal Copilot" color="neon" />
           <CopilotCard name="Sales Copilot" color="electric" />
           <CopilotCard name="Supply Chain Copilot" color="neon" />
+          <CopilotCard name="More Copilots (50+)" color="electric" />
         </div>
         
         <div className="text-center">
