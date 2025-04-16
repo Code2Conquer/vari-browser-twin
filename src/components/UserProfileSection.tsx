@@ -10,6 +10,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { User, LogIn, MessageSquare, Settings, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const UserProfileSection = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,7 +24,7 @@ const UserProfileSection = () => {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="z-50">
       {!isLoggedIn ? (
         <Button 
           onClick={handleLogin} 
@@ -53,13 +54,15 @@ const UserProfileSection = () => {
                   </NavigationMenuLink>
                   
                   <NavigationMenuLink asChild>
-                    <Button 
-                      variant="ghost" 
-                      className="justify-start text-gray-300 hover:text-neon hover:bg-graphite/80"
-                    >
-                      <Settings className="w-4 h-4 mr-2" />
-                      Settings
-                    </Button>
+                    <Link to="/settings">
+                      <Button 
+                        variant="ghost" 
+                        className="justify-start w-full text-gray-300 hover:text-neon hover:bg-graphite/80"
+                      >
+                        <Settings className="w-4 h-4 mr-2" />
+                        Settings
+                      </Button>
+                    </Link>
                   </NavigationMenuLink>
                   
                   <hr className="border-gray-700" />
