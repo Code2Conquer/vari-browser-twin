@@ -2,12 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Github, Share2, ShoppingCart } from "lucide-react";
-
 const DemoSection = () => {
   const [activeTab, setActiveTab] = useState("github");
-
-  return (
-    <section className="bg-graphite py-20">
+  return <section className="bg-graphite py-20">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           See Varias AI in Action
@@ -28,7 +25,7 @@ const DemoSection = () => {
             </TabsTrigger>
             <TabsTrigger value="shopping" className="flex items-center gap-2">
               <ShoppingCart size={18} />
-              <span className="hidden sm:inline">Amazon</span>
+              <span className="hidden sm:inline">Shopping</span>
             </TabsTrigger>
           </TabsList>
           
@@ -168,8 +165,6 @@ const DemoSection = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DemoSection;

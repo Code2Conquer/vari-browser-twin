@@ -1,13 +1,8 @@
-
 import { Code, FileSearch, ShoppingBag } from "lucide-react";
-
 const UseCasesSection = () => {
-  return (
-    <section className="bg-obsidian py-20">
+  return <section className="bg-obsidian py-20">
       <div className="section-container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          For Work, Play, and Everything Between
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">For Work, Play and Everything Between</h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
           Varias AI adapts to every scenario, becoming more valuable the more you use it.
         </p>
@@ -20,10 +15,7 @@ const UseCasesSection = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2 text-neon">Developers: Ship code faster</h3>
-                <p className="text-gray-400">
-                  Automatically review PRs, generate documentation, and catch bugs before they make it to production.
-                  Integrates with GitHub, GitLab, and more.
-                </p>
+                <p className="text-gray-400">Automatically review PRs, generate documentation and catch bugs before they make it to production. Integrates with GitHub, GitLab and more.</p>
               </div>
             </div>
             
@@ -33,10 +25,7 @@ const UseCasesSection = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2 text-neon">Procurement Teams: Never miss an RFP</h3>
-                <p className="text-gray-400">
-                  Automatically detect and organize RFPs from government and university sites. 
-                  Get insights into requirements and deadlines at a glance.
-                </p>
+                <p className="text-gray-400">Automatically detect and create bids for RFPs from government and university sites. Get insights into compliance, requirements and deadlines at a glance.</p>
               </div>
             </div>
             
@@ -46,10 +35,7 @@ const UseCasesSection = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2 text-neon">Shoppers: Find deals in seconds</h3>
-                <p className="text-gray-400">
-                  Compare prices across multiple sites, read summarized reviews, and get alerts when prices drop
-                  on items you're watching.
-                </p>
+                <p className="text-gray-400">Compare prices across multiple sites, read summarized reviews and get alerts when prices drop on items you're watching.</p>
               </div>
             </div>
           </div>
@@ -82,9 +68,9 @@ const UseCasesSection = () => {
                     </p>
                     <pre className="text-xs bg-obsidian p-2 rounded mt-2 text-green-400">
                       <code>
-                        CREATE INDEX idx_user_email ON users(email);<br/>
-                        ALTER TABLE posts ADD CONSTRAINT fk_user<br/>
-                        FOREIGN KEY (user_id) REFERENCES users(id)<br/>
+                        CREATE INDEX idx_user_email ON users(email);<br />
+                        ALTER TABLE posts ADD CONSTRAINT fk_user<br />
+                        FOREIGN KEY (user_id) REFERENCES users(id)<br />
                         ON DELETE CASCADE;
                       </code>
                     </pre>
@@ -100,8 +86,6 @@ const UseCasesSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default UseCasesSection;
