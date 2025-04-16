@@ -38,7 +38,7 @@ const NavbarSection = () => {
           <a href="#features" className="text-gray-300 hover:text-neon transition-colors">Features</a>
           <a href="#demo" className="text-gray-300 hover:text-neon transition-colors">Demo</a>
           <a href="#use-cases" className="text-gray-300 hover:text-neon transition-colors">Use Cases</a>
-          <a href="#agents" className="text-gray-300 hover:text-neon transition-colors">Agents</a>
+          <a href="#playground" className="text-gray-300 hover:text-neon transition-colors">Playground</a>
           <Button className="bg-electric hover:bg-electric/80 text-white">Try Free</Button>
         </nav>
 
@@ -77,11 +77,11 @@ const NavbarSection = () => {
               Use Cases
             </a>
             <a 
-              href="#agents" 
+              href="#playground" 
               className="text-gray-300 hover:text-neon transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Agents
+              Playground
             </a>
             <Button className="bg-electric hover:bg-electric/80 text-white w-full">
               Try Free
