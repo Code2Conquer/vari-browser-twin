@@ -45,13 +45,13 @@ const DemoSection = () => {
                 
                 <div className="flex mb-4">
                   <div className="w-1/2 pr-2 border-r border-gray-700">
-                    <pre className="text-red-400 text-xs"><code>- const API_URL = 'https://api.example.com/v1';</code></pre>
-                    <pre className="text-green-400 text-xs"><code>+ const API_URL = 'https://api.example.com/v2';</code></pre>
+                    <pre className="text-red-400 text-xs"><code>- const API_URL = &apos;https://api.example.com/v1&apos;;</code></pre>
+                    <pre className="text-green-400 text-xs"><code>+ const API_URL = &apos;https://api.example.com/v2&apos;;</code></pre>
                     <pre className="text-white text-xs mt-4"><code>
-                    function fetchData() {<br/>
-                      return fetch(`${API_URL}/data`)<br/>
-                        .then(res => res.json());<br/>
-                    }
+                    function fetchData() {"{"}
+                      return fetch(`${"${API_URL}"}/data`)
+                        .then(res => res.json());
+                    {"}"}
                     </code></pre>
                   </div>
                   
@@ -86,7 +86,7 @@ const DemoSection = () => {
                   <div className="w-2/3 pr-4">
                     <div className="p-4 bg-gray-800 rounded-lg mb-4">
                       <h4 className="text-white text-md mb-2">Open RFP: AI Ethics Research</h4>
-                      <p className="text-gray-400 text-sm mb-2">Stanford's Institute for Human-Centered AI is seeking proposals for research on ethical implications of autonomous agents in workplace settings.</p>
+                      <p className="text-gray-400 text-sm mb-2">Stanford&apos;s Institute for Human-Centered AI is seeking proposals for research on ethical implications of autonomous agents in workplace settings.</p>
                       <ul className="text-gray-400 text-sm list-disc list-inside">
                         <li>Budget: $100,000 - $250,000</li>
                         <li>Duration: 12-18 months</li>
@@ -130,7 +130,7 @@ const DemoSection = () => {
                       </div>
                       <div className="w-1/3 mx-2 bg-gray-800 rounded-lg p-2">
                         <div className="h-24 bg-gray-700 rounded mb-2"></div>
-                        <p className="text-white text-xs">Smart Display 10"</p>
+                        <p className="text-white text-xs">Smart Display 10&quot;</p>
                         <p className="text-electric text-xs">$249.99</p>
                       </div>
                       <div className="w-1/3 bg-gray-800 rounded-lg p-2">
