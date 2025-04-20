@@ -31,98 +31,100 @@ const DashboardSidebar = () => {
   };
 
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarHeader className="flex justify-between items-center">
-          <div className="flex items-center gap-2 px-2">
-            <span className="text-xl font-bold text-white">
-              Varias<span className="text-neon">AI</span>
-            </span>
-          </div>
-          <SidebarTrigger />
-        </SidebarHeader>
-        
-        <SidebarContent>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton 
-                tooltip="Policies"
-                isActive={location.pathname.includes('policies')}
-                asChild
-              >
-                <Link to="/dashboard/policies">
-                  <FileText className="w-5 h-5" />
-                  <span>Policies</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            
-            <SidebarMenuItem>
-              <SidebarMenuButton 
-                tooltip="RFPs" 
-                isActive={location.pathname.includes('rfps')}
-                asChild
-              >
-                <Link to="/dashboard/rfps">
-                  <FileText className="w-5 h-5" />
-                  <span>RFPs</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            
-            <SidebarMenuItem>
-              <SidebarMenuButton 
-                tooltip="Purchases" 
-                isActive={location.pathname.includes('purchases')}
-                asChild
-              >
-                <Link to="/dashboard/purchases">
-                  <ShoppingCart className="w-5 h-5" />
-                  <span>Purchases</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarContent>
-        
-        <SidebarFooter>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton 
-                tooltip="Settings" 
-                isActive={location.pathname.includes('settings')}
-                asChild
-              >
-                <Link to="/settings">
-                  <Settings className="w-5 h-5" />
-                  <span>Settings</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            
-            <SidebarMenuItem>
-              <SidebarMenuButton 
-                tooltip="Profile" 
-                isActive={location.pathname.includes('profile')}
-                asChild
-              >
-                <Link to="/dashboard/profile">
-                  <User className="w-5 h-5" />
-                  <span>Profile</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            
-            <SidebarMenuItem>
-              <SidebarMenuButton onClick={handleLogout}>
-                <LogOut className="w-5 h-5" />
-                <span>Logout</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarFooter>
-      </Sidebar>
-    </SidebarProvider>
+    <div className="w-64 shrink-0">
+      <SidebarProvider>
+        <Sidebar className="border-r border-gray-800">
+          <SidebarHeader className="flex justify-between items-center">
+            <div className="flex items-center gap-2 px-2">
+              <span className="text-xl font-bold text-white">
+                Varias<span className="text-neon">AI</span>
+              </span>
+            </div>
+            <SidebarTrigger />
+          </SidebarHeader>
+          
+          <SidebarContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="Policies"
+                  isActive={location.pathname.includes('policies')}
+                  asChild
+                >
+                  <Link to="/dashboard/policies">
+                    <FileText className="w-5 h-5" />
+                    <span>Policies</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="RFPs" 
+                  isActive={location.pathname.includes('rfps')}
+                  asChild
+                >
+                  <Link to="/dashboard/rfps">
+                    <FileText className="w-5 h-5" />
+                    <span>RFPs</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="Purchases" 
+                  isActive={location.pathname.includes('purchases')}
+                  asChild
+                >
+                  <Link to="/dashboard/purchases">
+                    <ShoppingCart className="w-5 h-5" />
+                    <span>Purchases</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarContent>
+          
+          <SidebarFooter>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="Settings" 
+                  isActive={location.pathname.includes('settings')}
+                  asChild
+                >
+                  <Link to="/settings">
+                    <Settings className="w-5 h-5" />
+                    <span>Settings</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="Profile" 
+                  isActive={location.pathname.includes('profile')}
+                  asChild
+                >
+                  <Link to="/dashboard/profile">
+                    <User className="w-5 h-5" />
+                    <span>Profile</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton onClick={handleLogout}>
+                  <LogOut className="w-5 h-5" />
+                  <span>Logout</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarFooter>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   );
 };
 
