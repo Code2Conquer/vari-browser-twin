@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -9,18 +9,27 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { User, LogIn, MessageSquare, Settings, LogOut } from "lucide-react";
-import { Link } from "react-router-dom";
+import { User, LogIn, Settings, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserProfileSection = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in
+    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedInStatus);
+  }, []);
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    navigate("/login");
   };
 
   const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   return (
@@ -44,13 +53,15 @@ const UserProfileSection = () => {
               <NavigationMenuContent className="bg-graphite border border-neon/30 p-4 rounded-md min-w-[240px]">
                 <div className="flex flex-col space-y-4">
                   <NavigationMenuLink asChild>
-                    <Button 
-                      variant="ghost" 
-                      className="justify-start text-gray-300 hover:text-neon hover:bg-graphite/80"
-                    >
-                      <MessageSquare className="w-4 h-4 mr-2" />
-                      Past Chats
-                    </Button>
+                    <Link to="/dashboard">
+                      <Button 
+                        variant="ghost" 
+                        className="justify-start w-full text-gray-300 hover:text-neon hover:bg-graphite/80"
+                      >
+                        <User className="w-4 h-4 mr-2" />
+                        Dashboard
+                      </Button>
+                    </Link>
                   </NavigationMenuLink>
                   
                   <NavigationMenuLink asChild>
