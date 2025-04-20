@@ -16,7 +16,7 @@ import Policies from "./pages/dashboard/Policies";
 import RFPs from "./pages/dashboard/RFPs";
 import Purchases from "./pages/dashboard/Purchases";
 
-// Protected route component
+// Protected route component with simplified check
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   
@@ -53,7 +53,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/settings" element={<Settings />} />
               
-              {/* Dashboard Routes */}
+              {/* Dashboard Routes - Fix layout nesting */}
               <Route path="/dashboard" element={
                 <ProtectedRoute>
                   <DashboardLayout />
@@ -65,7 +65,6 @@ const App = () => {
                 <Route path="purchases" element={<Purchases />} />
               </Route>
               
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

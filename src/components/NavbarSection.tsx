@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/use-auth";
 
 const NavbarSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,10 +19,6 @@ const NavbarSection = () => {
         setIsScrolled(false);
       }
     };
-
-    // Check if user is logged in
-    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedInStatus);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -51,7 +48,7 @@ const NavbarSection = () => {
           <a href="#demo" className="text-gray-300 hover:text-neon transition-colors">Demo</a>
           <a href="#use-cases" className="text-gray-300 hover:text-neon transition-colors">Use Cases</a>
           
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <Link to="/dashboard" className="text-gray-300 hover:text-neon transition-colors">Dashboard</Link>
           ) : null}
           
@@ -107,7 +104,7 @@ const NavbarSection = () => {
               Use Cases
             </a>
             
-            {isLoggedIn ? (
+            {isAuthenticated ? (
               <Link 
                 to="/dashboard" 
                 className="text-gray-300 hover:text-neon transition-colors py-2"
