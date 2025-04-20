@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,6 +14,7 @@ import DashboardIndex from "./pages/dashboard/Index";
 import Policies from "./pages/dashboard/Policies";
 import RFPs from "./pages/dashboard/RFPs";
 import Purchases from "./pages/dashboard/Purchases";
+import CompanyProfile from "./pages/dashboard/CompanyProfile";
 
 // Protected route component with simplified check
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -53,7 +53,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/settings" element={<Settings />} />
               
-              {/* Dashboard Routes - Fix layout nesting */}
+              {/* Dashboard Routes */}
               <Route path="/dashboard" element={
                 <ProtectedRoute>
                   <DashboardLayout />
@@ -63,8 +63,9 @@ const App = () => {
                 <Route path="policies" element={<Policies />} />
                 <Route path="rfps" element={<RFPs />} />
                 <Route path="purchases" element={<Purchases />} />
+                <Route path="company-profile" element={<CompanyProfile />} />
               </Route>
-              
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -20,9 +19,11 @@ import {
   ShoppingCart, 
   User 
 } from "lucide-react";
+import { FileBox } from "lucide-react"; // New import for RFP icon
 
 const DashboardSidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleLogout = () => {
@@ -31,15 +32,21 @@ const DashboardSidebar = () => {
   };
 
   return (
-    <div className="w-64 shrink-0">
+    <div className="w-56 shrink-0">
       <SidebarProvider>
         <Sidebar className="border-r border-gray-800">
-          <SidebarHeader className="flex justify-between items-center">
-            <div className="flex items-center gap-2 px-2">
-              <span className="text-xl font-bold text-white">
-                Varias<span className="text-neon">AI</span>
+          <SidebarHeader className="flex flex-col gap-2 px-2 py-4">
+            <Link 
+              to="/dashboard/company-profile" 
+              className="flex flex-col items-start hover:opacity-80 transition-opacity"
+            >
+              <span className="text-lg font-bold text-white leading-tight">
+                Baton Transport
               </span>
-            </div>
+              <span className="text-[10px] text-gray-400">
+                powered by VariasAI
+              </span>
+            </Link>
             <SidebarTrigger />
           </SidebarHeader>
           
@@ -51,7 +58,7 @@ const DashboardSidebar = () => {
                   isActive={location.pathname.includes('policies')}
                   asChild
                 >
-                  <Link to="/dashboard/policies">
+                  <Link to="/dashboard/policies" className="truncate">
                     <FileText className="w-5 h-5" />
                     <span>Policies</span>
                   </Link>
@@ -64,8 +71,8 @@ const DashboardSidebar = () => {
                   isActive={location.pathname.includes('rfps')}
                   asChild
                 >
-                  <Link to="/dashboard/rfps">
-                    <FileText className="w-5 h-5" />
+                  <Link to="/dashboard/rfps" className="truncate">
+                    <FileBox className="w-5 h-5" />
                     <span>RFPs</span>
                   </Link>
                 </SidebarMenuButton>
@@ -77,7 +84,7 @@ const DashboardSidebar = () => {
                   isActive={location.pathname.includes('purchases')}
                   asChild
                 >
-                  <Link to="/dashboard/purchases">
+                  <Link to="/dashboard/purchases" className="truncate">
                     <ShoppingCart className="w-5 h-5" />
                     <span>Purchases</span>
                   </Link>
@@ -94,7 +101,7 @@ const DashboardSidebar = () => {
                   isActive={location.pathname.includes('settings')}
                   asChild
                 >
-                  <Link to="/settings">
+                  <Link to="/settings" className="truncate">
                     <Settings className="w-5 h-5" />
                     <span>Settings</span>
                   </Link>
@@ -102,20 +109,7 @@ const DashboardSidebar = () => {
               </SidebarMenuItem>
               
               <SidebarMenuItem>
-                <SidebarMenuButton 
-                  tooltip="Profile" 
-                  isActive={location.pathname.includes('profile')}
-                  asChild
-                >
-                  <Link to="/dashboard/profile">
-                    <User className="w-5 h-5" />
-                    <span>Profile</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              
-              <SidebarMenuItem>
-                <SidebarMenuButton onClick={handleLogout}>
+                <SidebarMenuButton onClick={handleLogout} className="truncate">
                   <LogOut className="w-5 h-5" />
                   <span>Logout</span>
                 </SidebarMenuButton>
