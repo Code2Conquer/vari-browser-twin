@@ -119,7 +119,11 @@ const LoginForm = () => {
                 render={({ slots }) => (
                   <InputOTPGroup>
                     {slots.map((slot, index) => (
-                      <InputOTPSlot key={index} {...slot} className="bg-obsidian border-gray-700 text-white" />
+                      <InputOTPSlot 
+                        key={index} 
+                        index={index} 
+                        className="bg-obsidian border-gray-700 text-white"
+                      />
                     ))}
                   </InputOTPGroup>
                 )}
