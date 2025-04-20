@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const NavbarSection = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +18,10 @@ const NavbarSection = () => {
         setIsScrolled(false);
       }
     };
+
+    // Check if user is logged in
+    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedInStatus);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -45,6 +50,11 @@ const NavbarSection = () => {
           <a href="#features" className="text-gray-300 hover:text-neon transition-colors">Features</a>
           <a href="#demo" className="text-gray-300 hover:text-neon transition-colors">Demo</a>
           <a href="#use-cases" className="text-gray-300 hover:text-neon transition-colors">Use Cases</a>
+          
+          {isLoggedIn ? (
+            <Link to="/dashboard" className="text-gray-300 hover:text-neon transition-colors">Dashboard</Link>
+          ) : null}
+          
           <Button 
             onClick={handleLogin}
             className="bg-neon/90 hover:bg-neon text-obsidian font-medium"
@@ -96,6 +106,17 @@ const NavbarSection = () => {
             >
               Use Cases
             </a>
+            
+            {isLoggedIn ? (
+              <Link 
+                to="/dashboard" 
+                className="text-gray-300 hover:text-neon transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            ) : null}
+            
             <Button 
               className="bg-electric hover:bg-electric/80 text-white w-full"
               onClick={() => {
